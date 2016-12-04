@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>Visual recognition Example</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  </head>
+</head>
+
+<body>
+<div class="container">
+	<div class="row page-header">
+    	<h1 class="text-center">Ejemplo de uso del servicio: Jose Castro Aguado</h1>
+    </div>
+    <div class="row">
+    	<div class="col-md-8">
+        	<div>
+            	<span class="label label-info">Write the image url:</span>
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="url" required id="image_url" size="80" <!--placeholder="https://github.com/watson-developer-cloud/doc-tutorial-downloads/raw/master/visual-recognition/fruitbowl.jpg"/
+                    value="https://github.com/watson-developer-cloud/doc-tutorial-downloads/raw/master/visual-recognition/fruitbowl.jpg"-->>
+            </div>
+            <div class="text-center">
+                <input class="btn btn-success" id="callServiceBtn" type="button" value="Clasiffy">
+            </div>
+            <div id="jsonData" style="margin-top:5px;">The response data will be here...</div>
+        </div>
+        <div class="col-md-4">
+             <div><img id="image" class="pull-left" src="" width="256" height="256"/></div>
+        </div>
+    </div>
+</div>
+    
+<script language="javascript" src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+<script language="javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script language="javascript" src="js/visual.js"></script>
+
+<script>
+	$( document ).ready(function() {
+  		//Action to be done on click button
+		$( "#callServiceBtn" ).click(function() {
+			$("#jsonData").html("");
+			$("#image").attr("src","images/loading.gif");
+		});
+	});
+	
+	// Callback to show data
+	function show_data(data){
+		var json_string = JSON.stringify(data, null, 3);
+		$("#jsonData").html("<pre>"+json_string+"</pre>");
+		$("#image").attr("src",data.images[0].source_url);
+	}
+</script>
+</body>
