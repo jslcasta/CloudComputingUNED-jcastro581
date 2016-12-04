@@ -46,6 +46,7 @@
 		$( "#callServiceBtn" ).click(function() {
 			$("#jsonData").html("");
 			$("#image").attr("src","images/loading.gif");
+  			visualRecognitionService.clasiffy($("#image_url").val(), show_data);
 		});
 	});
 	
