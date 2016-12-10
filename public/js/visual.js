@@ -3,7 +3,7 @@ var visualRecognitionService = (function () {
   	// Service properties
   	var api_key = "ae710865420b1a8e59a8e47ccdc15b56027312b1";
 	var service_url = "https://gateway-a.watsonplatform.net/visual-recognition/api";
-	var end_point = "v3/classify";
+	var end_point = "/v3/classify";
 	var version = "2016-05-20";
 
 	return {
