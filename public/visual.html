@@ -25,7 +25,8 @@
                     value="http://images.freeimages.com/images/previews/f8f/sleeping-cat-1634964.jpg">
             </div>
             <div class="text-center">
-                <input class="btn btn-success" id="callServiceBtn" type="button" value="Clasiffy">
+                <input class="btn btn-success" id="callServiceBtnClass" type="button" value="Clasiffy">
+                <input class="btn btn-success" id="callServiceBtnFaces" type="button" value="Detect Faces">
             </div>
             <div id="jsonData" style="margin-top:5px;">The response data will be here...</div>
         </div>
@@ -43,10 +44,19 @@
 <script>
 	$( document ).ready(function() {
   		//Action to be done on click button
-		$( "#callServiceBtn" ).click(function() {
+		$( "#callServiceBtnClass" ).click(function() {
 			$("#jsonData").html("");
 			$("#image").attr("src","images/loading.gif");
-  			visualRecognitionService.clasiffy($("#image_url").val(), show_data);
+  			visualRecognitionService_clasiffy.clasiffy($("#image_url").val(), show_data);
+		});
+	});
+    
+    $( document ).ready(function() {
+  		//Action to be done on click button
+		$( "#callServiceBtnFaces" ).click(function() {
+			$("#jsonData").html("");
+			$("#image").attr("src","images/loading.gif");
+  			visualRecognitionService_detectFaces.detect_faces($("#image_url").val(), show_data);
 		});
 	});
 	
